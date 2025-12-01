@@ -3,7 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Usuario(AbstractUser):
-    pass
+
+    cargo = models.CharField(max_length=50, blank=True, null=True)
 
 class Projeto(models.Model):
     EscolhasStatus = [

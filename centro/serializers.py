@@ -4,7 +4,7 @@ from .models import Usuario, Projeto, Equipe
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['id', 'username', 'email']  # mostrando somente o necessario
+        fields = ['id', 'username', 'email', 'cargo'] 
 
 class ProjetoSerializer(serializers.ModelSerializer):
     # mostrar os detalhes
