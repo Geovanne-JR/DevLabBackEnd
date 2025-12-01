@@ -7,9 +7,12 @@ class UsuarioSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email']  # mostrando somente o necessario
 
 class ProjetoSerializer(serializers.ModelSerializer):
+    # mostrar os detalhes
+    participantes_detalhes = UsuarioSerializer(source='participantes', many=True, read_only=True)
+
     class Meta:
         model = Projeto
-        fields = '__all__'  # traduzindo todos os campos
+        fields = '__all__'
 
 class EquipeSerializer(serializers.ModelSerializer):
     class Meta:
