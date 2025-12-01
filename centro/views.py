@@ -13,6 +13,6 @@ class ProjetoViewSet(viewsets.ModelViewSet):
     serializer_class = ProjetoSerializer      # Usa o tradutor de projetos
 
 # 3. View da Equipe
-class EquipeViewSet(viewsets.ModelViewSet):
+class EquipesViewSet(viewsets.ModelViewSet):
     queryset = Equipes.objects.all()           # Pega todas as equipes
     serializer_class = EquipesSerializer       # Usa o tradutor de equipes
