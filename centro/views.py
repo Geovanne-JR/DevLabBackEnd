@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Usuario, Projeto, Equipes
-from .serializers import UsuarioSerializer, ProjetoSerializer, EquipesSerializer
+from .models import Usuario, Projeto, Equipe
+from .serializers import UsuarioSerializer, ProjetoSerializer, EquipeSerializer
 
 # 1. View do Usuário
 class UsuarioViewSet(viewsets.ModelViewSet):
@@ -13,6 +13,6 @@ class ProjetoViewSet(viewsets.ModelViewSet):
     serializer_class = ProjetoSerializer      # Usa o tradutor de projetos
 
 # 3. View da Equipe
-class EquipesViewSet(viewsets.ModelViewSet):
-    queryset = Equipes.objects.all()           # Pega todas as equipes
-    serializer_class = EquipesSerializer       # Usa o tradutor de equipes
+class EquipeViewSet(viewsets.ModelViewSet):
+    queryset = Equipe.objects.all()           # Pega todas as equipes
+    serializer_class = EquipeSerializer       # Usa o tradutor de equipes

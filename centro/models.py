@@ -21,7 +21,7 @@ class Projeto(models.Model):
 
     def __str__(self):
         return self.titulo
-class Equipes(models.Model):
+class Equipe(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.CharField(blank= True, null=  True)
     projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE , related_name= 'equipes')
