@@ -60,14 +60,6 @@ class ProjetoViewSet(viewsets.ModelViewSet):
         return Response({'status': f'Usuário {usuario_alvo.username} adicionado!'}, status=status.HTTP_200_OK)
 
 
-    @action(detail=True, methods=['post'])
-    def participantes(self, request, pk=None):
-        projeto = self.get_object()
-        usuario_id = request.data.get('usuario_id')
-        usuario = get_object_or_404(Usuario, id=usuario_id)
-        projeto.participantes.add(usuario)
-        return Response({'status': f'Usuário {usuario.username} adicionado!'}, status=status.HTTP_200_OK)
-
     @action(detail=True, methods=['get'])
     def dashboard(self, request, pk=None):
         projeto = self.get_object()
