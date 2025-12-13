@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 
 #  Permissões
 from rest_framework.permissions import IsAuthenticated
@@ -103,11 +103,11 @@ class EquipeViewSet(viewsets.ModelViewSet):
 from django.shortcuts import render
 
 def pagina_inicial(request):
-    #  Busca todos os projetos no banco
-    lista_projetos = Projeto.objects.all()
-    
-    # HTML desenha
-    return render(request, 'index.html', {'projetos': lista_projetos})
+    projetos = Projeto.objects.all()
+    return render(request, 'centro/home.html', {
+        'projetos': projetos
+    })
+
 
 def detalhe_projeto_view(request, pk):
     projeto = get_object_or_404(Projeto, pk=pk)
@@ -117,23 +117,31 @@ def detalhe_projeto_view(request, pk):
     if request.user.is_authenticated:
         eh_professor = request.user.groups.filter(name='Professores').exists()
 
-    return render(request, 'projeto_detalhe.html', {
+    return render(request, 'centro/projeto_detalhe.html', {
         'projeto': projeto,
         'eh_professor': eh_professor
     })
 
-from django.shortcuts import redirect
+
 def adicionar_membro_html(request, pk):
+    projeto = get_object_or_404(Projeto, pk=pk)
+
+    # usuários que ainda não participam do projeto
+    usuarios = Usuario.objects.exclude(
+        projetos_participados=projeto
+    )
+
     if request.method == 'POST':
-        projeto = get_object_or_404(Projeto, pk=pk)
-        # Verifica de novo se pode
         eh_prof = request.user.groups.filter(name='Professores').exists()
-        
+
         if request.user.is_staff or eh_prof:
             uid = request.POST.get('usuario_id')
             user_add = get_object_or_404(Usuario, id=uid)
             projeto.participantes.add(user_add)
-    
-    return redirect('detalhe_projeto', pk=pk)
-    
-        
+
+            return redirect('detalhe_projeto', pk=pk)
+
+    return render(request, 'adicionar_membro.html', {
+        'projeto': projeto,
+        'usuarios': usuarios
+    })
