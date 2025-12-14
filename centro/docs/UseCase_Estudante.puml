@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+
+actor Estudante
+
+rectangle "Sistema de Gerenciamento de Projetos" {
+  usecase "Login"
+  usecase "Logout"
+  usecase "Listar Projetos"
+  usecase "Visualizar Projeto"
+  usecase "Listar Equipes"
+  usecase "Visualizar Equipe"
+  usecase "Participar de Projeto"
+  usecase "Participar de Equipe"
+  usecase "Visualizar Perfil"
+}
+
+Estudante --> "Login"
+Estudante --> "Logout"
+Estudante --> "Listar Projetos"
+Estudante --> "Visualizar Projeto"
+Estudante --> "Listar Equipes"
+Estudante --> "Visualizar Equipe"
+Estudante --> "Participar de Projeto"
+Estudante --> "Participar de Equipe"
+Estudante --> "Visualizar Perfil"
+
+@enduml
+

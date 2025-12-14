@@ -1,0 +1,50 @@
+@startuml
+' Diagrama ER para DevLabBackEnd (PlantUML/ERD plugin)
+
+entity Usuario {
+  *id : integer <<PK>>
+  username : varchar
+  email : varchar
+  password : varchar
+  cargo : varchar
+}
+
+entity Projeto {
+  *id : integer <<PK>>
+  titulo : varchar
+  cliente : varchar
+  descricao : text
+  data_Inicio : date
+  data_Fim_Prevista : date
+  status : varchar
+}
+
+entity Equipe {
+  *id : integer <<PK>>
+  nome : varchar
+  descricao : varchar
+  projeto_id : integer <<FK>>
+  lider_id : integer <<FK>>
+}
+
+entity ProjetoParticipante {
+  *id : integer <<PK>>
+  projeto_id : integer <<FK>>
+  usuario_id : integer <<FK>>
+}
+
+entity EquipeMembro {
+  *id : integer <<PK>>
+  equipe_id : integer <<FK>>
+  usuario_id : integer <<FK>>
+}
+
+' Relacionamentos
+ProjetoParticipante }|..|| Projeto : "N:N"
+ProjetoParticipante }|..|| Usuario : "N:N"
+EquipeMembro }|..|| Equipe : "N:N"
+EquipeMembro }|..|| Usuario : "N:N"
+Equipe }o--|| Projeto : "1:N"
+Equipe }o--|| Usuario : "1:1 (lider, opcional)"
+@enduml
+
