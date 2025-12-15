@@ -91,28 +91,44 @@ Siga as instruções para definir usuário, e-mail e senha.
 
 ## Estrutura do Projeto
 
-```
+- **centro/**: App principal contendo regras de negócio, APIs, permissões e templates.
+- **devlab_backend/**: Configurações centrais do projeto Django.
+- **templates/**: Sobrescrita de templates do Django Admin e Django REST Framework.
+
 DevLabBackEnd/
 ├── manage.py
-├── requeriments.txt
+├── requirements.txt
 ├── db.sqlite3
 ├── README.md
+├── .gitignore
+├── venv/
 ├── centro/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
 │   ├── models.py
 │   ├── views.py
 │   ├── serializers.py
 │   ├── permissions.py
 │   ├── urls.py
-│   ├── admin.py
-│   ├── apps.py
 │   ├── tests.py
 │   ├── migrations/
+│   │   └── __init__.py
 │   └── templates/
+│       └── centro/
+│           ├── base.html
+│           ├── home.html
+│           ├── projeto_detalhe.html
+│           └── adicionar_membro.html
 ├── devlab_backend/
+│   ├── __init__.py
 │   ├── settings.py
 │   ├── urls.py
+│   ├── asgi.py
 │   ├── wsgi.py
-│   └── asgi.py
+│   └── templates/
+│       ├── admin/
+|       ├── rest_framework/      
 ```
 
 - `centro/`: App principal com modelos, views, serializers, permissões e rotas da API.
