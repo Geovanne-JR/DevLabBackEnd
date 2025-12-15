@@ -57,7 +57,7 @@ ROOT_URLCONF = 'devlab_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +133,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+LOGIN_REDIRECT_URL = '/api/home/'
+LOGOUT_REDIRECT_URL = '/api-auth/login/'

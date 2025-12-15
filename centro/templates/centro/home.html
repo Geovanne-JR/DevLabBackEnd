@@ -1,0 +1,22 @@
+{% extends "centro/base.html" %}
+
+{% block title %}Home | DevLab{% endblock %}
+
+{% block content %}
+<h1>Projetos</h1>
+
+{% for projeto in projetos %}
+    <div class="card">
+        <h2>{{ projeto.titulo }}</h2>
+        <p><strong>Cliente:</strong> {{ projeto.cliente }}</p>
+        <p><strong>Status:</strong> {{ projeto.status }}</p>
+        <p>{{ projeto.descricao }}</p>
+
+        <a class="btn" href="{% url 'detalhe_projeto' projeto.id %}">
+            Ver detalhes →
+        </a>
+    </div>
+{% empty %}
+    <p>Nenhum projeto cadastrado.</p>
+{% endfor %}
+{% endblock %}

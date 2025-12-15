@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ projeto.titulo }} | DevLab</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f9;
+            color: #2c3e50;
+        }
+
+        header {
+            background-color: #1abc9c;
+            padding: 20px;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .status {
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .btn-voltar {
+            background: #7f8c8d;
+            color: white;
+        }
+
+        .btn-add {
+            background: #3498db;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📌 {{ projeto.titulo }}</h1>
+</header>
+
+<main>
+
+    <div class="card">
+        <h2>Informações do Projeto</h2>
+
+        <p><strong>Cliente:</strong> {{ projeto.cliente }}</p>
+        <p><strong>Status:</strong> <span class="status">{{ projeto.status }}</span></p>
+        <p><strong>Descrição:</strong></p>
+        <p>{{ projeto.descricao }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Participantes</h2>
+
+        {% if projeto.participantes.all %}
+            <ul>
+                {% for usuario in projeto.participantes.all %}
+                    <li>{{ usuario.username }} ({{ usuario.cargo }})</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum participante cadastrado.</p>
+        {% endif %}
+
+        {% if eh_professor %}
+            <a href="{% url 'adicionar_membro_html' projeto.id %}" class="btn btn-add">
+                ➕ Adicionar membro
+            </a>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'home' %}" class="btn btn-voltar">
+        ← Voltar para Home
+    </a>
+
+</main>
+
+<footer>
+    © 2025 DevLab
+</footer>
+
+</body>
+</html>
+
+{% if user.is_authenticated and eh_professor or user.is_staff %}
+    <hr>
+
+    <a href="{% url 'adicionar_membro_html' projeto.id %}"
+       style="
+            background:#1e7f5c;
+            color:white;
+            padding:10px 16px;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:600;
+            display:inline-block;
+            margin-top:15px;
+       ">
+        ➕ Adicionar Membro ao Projeto
+    </a>
+{% endif %}
