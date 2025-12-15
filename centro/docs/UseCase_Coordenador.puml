@@ -1,0 +1,46 @@
+@startuml
+left to right direction
+
+actor Coordenador
+
+rectangle "Sistema de Gerenciamento de Projetos" {
+  usecase "Login"
+  usecase "Logout"
+  usecase "Criar Projeto"
+  usecase "Listar Projetos"
+  usecase "Editar Projeto"
+  usecase "Deletar Projeto"
+  usecase "Visualizar Projeto"
+  usecase "Criar Equipe"
+  usecase "Listar Equipes"
+  usecase "Editar Equipe"
+  usecase "Deletar Equipe"
+  usecase "Visualizar Equipe"
+  usecase "Atribuir Membros à Equipe"
+  usecase "Criar Usuário"
+  usecase "Listar Usuários"
+  usecase "Editar Usuário"
+  usecase "Deletar Usuário"
+  usecase "Visualizar Perfil"
+}
+
+Coordenador --> "Login"
+Coordenador --> "Logout"
+Coordenador --> "Criar Projeto"
+Coordenador --> "Listar Projetos"
+Coordenador --> "Editar Projeto"
+Coordenador --> "Deletar Projeto"
+Coordenador --> "Visualizar Projeto"
+Coordenador --> "Criar Equipe"
+Coordenador --> "Listar Equipes"
+Coordenador --> "Editar Equipe"
+Coordenador --> "Deletar Equipe"
+Coordenador --> "Visualizar Equipe"
+Coordenador --> "Atribuir Membros à Equipe"
+Coordenador --> "Criar Usuário"
+Coordenador --> "Listar Usuários"
+Coordenador --> "Editar Usuário"
+Coordenador --> "Deletar Usuário"
+Coordenador --> "Visualizar Perfil"
+
+@enduml
