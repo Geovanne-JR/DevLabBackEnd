@@ -1,0 +1,15 @@
+{% extends "admin/index.html" %}
+{% load static %}
+
+{% block content %}
+    <div style="text-align: center; margin-top: 40px;">
+        <h1 style="color: #fff; font-size: 36px;">
+            Bem-vindo ao Painel DevLab
+        </h1>
+        <p style="color: #ddd; font-size: 18px;">
+            Gerencie seus usuários, equipes e projetos.
+        </p>
+    </div>
+
+    {{ block.super }}
+{% endblock %}
