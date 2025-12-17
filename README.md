@@ -2,7 +2,7 @@
 
 ## Descrição do Sistema
 
-O DevLabBackEnd é uma aplicação Django para gerenciamento de projetos, equipes e usuários do programa DevLab. O sistema centraliza informações, facilita o acompanhamento das atividades acadêmicas e permite que diferentes perfis de usuários (estudantes, professores, coordenadores) interajam com os dados de forma eficiente. Entre as funcionalidades estão o cadastro de projetos, equipes, usuários, associação de participantes, definição de líderes e consultas de histórico de participação.
+O DevLabBackEnd é uma aplicação desenvolvida em Django para o gerenciamento integrado de projetos, equipes e usuários do programa DevLab. O sistema centraliza todas as informações relevantes, simplificando o acompanhamento das atividades acadêmicas e promovendo a interação eficiente entre diferentes perfis de usuários, como estudantes, professores e coordenadores. Entre as principais funcionalidades, destacam-se o cadastro e gerenciamento de projetos, equipes e usuários, a associação de participantes, a definição de líderes e a consulta ao histórico de participação no programa.
 
 ## Como instalar dependências
 
