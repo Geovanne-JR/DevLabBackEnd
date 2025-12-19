@@ -89,6 +89,45 @@ Siga as instruções para definir usuário, e-mail e senha.
 - O sistema utiliza autenticação JWT para a API.
 - Para criar usuários via API, é necessário estar autenticado como admin.
 
+## 📚 Rotas Principais do Sistema
+
+### 🌐 Rotas Base da API
+
+| Método | Endpoint | Descrição | Permissão |
+|------|--------|----------|-----------|
+| GET | /api/ | API Root do Django REST Framework (lista de endpoints disponíveis) | Público |
+| GET | /api/projetos/ | Lista todos os projetos (filtrada conforme o perfil do usuário) | Público / Autenticado |
+| GET | /api/equipes/ | Lista todas as equipes cadastradas | Público / Autenticado |
+| GET | /api/usuarios/ | Lista todos os usuários do sistema | Autenticado |
+
+---
+
+### 🏠 Rota de Página Inicial (HTML)
+
+| Método | Endpoint | Descrição |
+|------|--------|----------|
+| GET | /api/home/ | Página inicial do sistema com visualização dos projetos |
+
+### 👥 Rotas de Equipes
+
+| Método | Endpoint | Descrição |
+|------|--------|----------|
+| GET | /api/equipes/ | Lista todas as equipes |
+| POST | /api/equipes/ | Criação de equipe (Admin) |
+| GET | /api/equipes/{id}/ | Detalhes de uma equipe |
+| POST | /api/equipes/{id}/definir_lider/ | Define o líder da equipe |
+
+---
+
+### 📁 Rotas de Projetos
+
+| Método | Endpoint | Descrição |
+|------|--------|----------|
+| GET | /api/projetos/ | Lista projetos disponíveis |
+| GET | /api/projetos/{id}/ | Detalhes de um projeto |
+| GET | /api/projetos/{id}/dashboard/ | Dashboard do projeto |
+| POST | /api/projetos/{id}/participantes/ | Adiciona participantes ao projeto |
+
 ## Estrutura do Projeto
 
 - **centro/**: App principal contendo regras de negócio, APIs, permissões e templates.
