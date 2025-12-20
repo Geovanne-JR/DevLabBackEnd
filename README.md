@@ -89,7 +89,7 @@ Siga as instruções para definir usuário, e-mail e senha.
 - O sistema utiliza autenticação JWT para a API.
 - Para criar usuários via API, é necessário estar autenticado como admin.
 
-## EDR
+## DER
 <img width="480" height="473" alt="ERD" src="https://github.com/user-attachments/assets/0c5af28e-5624-41c8-a86d-eb8f41c0f363" />
 
 ## 📚 Rotas Principais do Sistema
